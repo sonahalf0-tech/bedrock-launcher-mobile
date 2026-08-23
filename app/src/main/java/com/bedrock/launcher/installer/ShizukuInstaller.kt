@@ -48,11 +48,20 @@ class ShizukuInstaller(private val context: Context) : InstallerEngine {
 
         try {
             // Run pm install via Shizuku process
-            // -r: replace existing application
-            // -d: allow version downgrade
-            // -g: grant all runtime permissions
             val cmd = arrayOf("pm", "install", "-r", "-d", "-g", apkFile.absolutePath)
-            val process = Shizuku.newProcess(cmd, null, null)
+            
+            val process = try {
+                val method = Shizuku::class.java.getDeclaredMethod(
+                    "newProcess",
+                    Array<String>::class.java,
+                    Array<String>::class.java,
+                    String::class.java
+                )
+                method.isAccessible = true
+                method.invoke(null, cmd, null, null) as Process
+            } catch (e: Throwable) {
+                Runtime.getRuntime().exec(cmd)
+            }
 
             val reader = BufferedReader(InputStreamReader(process.inputStream))
             val errorReader = BufferedReader(InputStreamReader(process.errorStream))
