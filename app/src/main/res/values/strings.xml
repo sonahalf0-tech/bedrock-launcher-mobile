@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Bedrock Launcher</string>
+    <string name="nav_home">Главная</string>
+    <string name="nav_versions">Версии</string>
+    <string name="nav_profiles">Профили</string>
+    <string name="nav_mods">Моды &amp; Паки</string>
+    <string name="nav_settings">Настройки</string>
+    
+    <string name="action_play">ИГРАТЬ</string>
+    <string name="action_switch">Переключить</string>
+    <string name="action_import_apk">Импортировать APK</string>
+    <string name="action_import_addon">Импортировать Мод/Пак</string>
+    <string name="action_create_profile">Создать профиль</string>
+    <string name="action_save">Сохранить</string>
+    <string name="action_delete">Удалить</string>
+    
+    <string name="status_installed">Установлена</string>
+    <string name="status_ready">Готово к запуску</string>
+    <string name="status_switching">Переключение версии...</string>
+    <string name="status_launching">Запуск игры...</string>
+    <string name="status_not_installed">Не установлена</string>
+</resources>
